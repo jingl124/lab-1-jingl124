@@ -65,3 +65,10 @@ ggplot(data=midwest, aes(x=state, fill=metro))+geom_bar(position="fill")+labs(x=
 Every single state in the plot above has more non-metro counties than metro counties. Ohio has the highest percentage of metro counties, and Illinois has the lowest percentage of metro counties.
 
 ## Exercise 7
+
+```{r}
+#| label: exercise-7
+ggplot(data=midwest, aes(x=percollege,y=popdensity, color=state))
+  + geom_point()
+  + labs(x="% college educated", y="Population density (person / unit area)", title="Do people with college degrees tend to live in denser areas?")
+```
