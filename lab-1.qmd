@@ -20,7 +20,7 @@ The distribution shown below is unimodal and heavily right skewed. There seems t
 
 ```{r}
 #| label: exercise-1
-ggplot(midwest, aes(x = popdensity)) + geom_histogram(binwidth = 10000) + ggtitle("Population density of counties")
+ggplot(midwest, aes(x = popdensity)) + geom_histogram(binwidth = 10000) + labs(x = "Population density", y = "Count", title = "Population density of counties")
 
 ```
 
@@ -28,7 +28,7 @@ ggplot(midwest, aes(x = popdensity)) + geom_histogram(binwidth = 10000) + ggtitl
 
 ```{r}
 #| label: exercise-2
-ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + geom_point() + scale_color_viridis_d() + ggtitle("Percent with college degrees vs. Percent in poverty")
+ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + geom_point() + scale_color_viridis_d() + labs(x="% with college degree", y="% in poverty", title="Percent with college degrees vs. Percent in poverty")
 ```
 
 ## Exercise 3
@@ -38,13 +38,30 @@ In all the states collectively, there seems to be a rough inverse relationship b
 ## Exercise 4
 
 ```{r}
-ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + geom_point() + facet_wrap(vars(state)) + scale_color_viridis_d() + ggtitle("Percent with college degrees vs. Percent in poverty") + geom_smooth(se = FALSE)
+#| label: exercise-4
+ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + geom_point() + facet_wrap(vars(state)) + scale_color_viridis_d() + labs(x = "% with college degree", y = "% in poverty", title = "Percent with college degrees vs. Percent in poverty") + geom_smooth(se = FALSE)
 ```
 
 I personally prefer this plot over the one in Exercise 2. In Exercise 2, all the states were on the same graph, which made it hard to distinguish different points that were overlapping each other. This is especially problematic for states whose colors were very similar to each other. It also it made it hard to analyze trends of individual states, because other unrelated points would obstruct the view of points of interest. In addition, Exercise 4 has helpful trend lines that makes it easier to analyze the trends of each state.
 
 ## Exercise 5
 
+```{r}
+#| label: exercise-5
+
+ggplot(midwest, aes(x=area, fill = state)) + geom_boxplot() + labs(x="Area", title="Area of counties by state")
+```
+
 ## Exercise 6
+
+```{r}
+#| label: exercise-6
+midwest <- midwest |>
+  mutate(metro = if_else(inmetro == 1, "Yes", "No"))
+
+ggplot(data=midwest, aes(x=state, fill=metro))+geom_bar(position="fill")+labs(x="State", y="Portion of counties in metro", title="Portion of counties in metro by state")
+```
+
+Every single state in the plot above has more non-metro counties than metro counties. Ohio has the highest percentage of metro counties, and Illinois has the lowest percentage of metro counties.
 
 ## Exercise 7
