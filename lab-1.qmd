@@ -33,7 +33,7 @@ ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + geom
 
 ## Exercise 3
 
-(Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+In all the states collectively, there seems to be a rough inverse relationship between percentage of people with college degrees and percentage of people living in poverty. Illinois follows this trend the least, with multiple counties having both high percentages of people with college degrees and high percentages of people living in poverty. Indiana seems to have the lowest percentages of people with college degrees and percentages of people in poverty. Wisconsin has the most constant trend, with the percentage of people with college degrees widely varying (although more right-skewed) and the percentage of people living in poverty being relatively constant among different counties.
 
 ## Exercise 4
 
