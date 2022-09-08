@@ -33,9 +33,15 @@ ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + geom
 
 ## Exercise 3
 
-In all the states collectively, there seems to be a rough inverse relationship between percentage of people with college degrees and percentage of people living in poverty. Illinois follows this trend the least, with multiple counties having both high percentages of people with college degrees and high percentages of people living in poverty. Indiana seems to have the lowest percentages of people with college degrees and percentages of people in poverty. Wisconsin has the most constant trend, with the percentage of people with college degrees widely varying (although more right-skewed) and the percentage of people living in poverty being relatively constant among different counties.
+In all the states collectively, there seems to be a rough inverse relationship between percentage of people with college degrees and percentage of people living in poverty. Illinois follows this trend the least, with multiple counties having both high percentages of people with college degrees and high percentages of people living in poverty. Indiana seems to have the lowest percentages of people with college degrees and percentages of people in poverty. Wisconsin has the most constant trend, with the percentage of people with college degrees widely varying (although more right-skewed) and the percentage of people living in poverty being relatively constant among different counties. There is one major outlier for Wisconsin, however, that has an unusually high percentage of people in poverty low percentage of people with college degrees.
 
 ## Exercise 4
+
+```{r}
+ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + geom_point() + facet_wrap(vars(state)) + scale_color_viridis_d() + ggtitle("Percent with college degrees vs. Percent in poverty") + geom_smooth(se = FALSE)
+```
+
+I personally prefer this plot over the one in Exercise 2. In Exercise 2, all the states were on the same graph, which made it hard to distinguish different points that were overlapping each other. This is especially problematic for states whose colors were very similar to each other. It also it made it hard to analyze trends of individual states, because other unrelated points would obstruct the view of points of interest. In addition, Exercise 4 has helpful trend lines that makes it easier to analyze the trends of each state.
 
 ## Exercise 5
 
