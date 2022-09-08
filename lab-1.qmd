@@ -10,13 +10,19 @@ editor: visual
 ```{r}
 #| label: load-packages
 #| message: false
-
 library(tidyverse)
+library(viridis)
 ```
 
 ## Exercise 1
 
-(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget to label your code chunk. Do not use spaces in code chunk labels.)
+The distribution shown below is unimodal and heavily right skewed. There seems to be a couple of outliers at around 60000 and 90000 on the x-axis.
+
+```{r}
+#| label: exercise-1
+ggplot(midwest, aes(x = popdensity)) + geom_histogram(binwidth = 10000) + ggtitle("Population density of counties")
+
+```
 
 ## Exercise 2
 
@@ -28,11 +34,8 @@ library(tidyverse)
 
 ## Exercise 4
 
-
 ## Exercise 5
 
-
 ## Exercise 6
-
 
 ## Exercise 7
