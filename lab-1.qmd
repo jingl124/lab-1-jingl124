@@ -68,7 +68,12 @@ Every single state in the plot above has more non-metro counties than metro coun
 
 ```{r}
 #| label: exercise-7
-ggplot(data=midwest, aes(x=percollege,y=popdensity, color=state))
-  + geom_point()
-  + labs(x="% college educated", y="Population density (person / unit area)", title="Do people with college degrees tend to live in denser areas?")
+ggplot(midwest, aes(x=percollege,y=popdensity, color=percbelowpoverty)) + 
+  geom_point(size=2, alpha=0.5) + 
+  facet_wrap(~state, nrow=2) + 
+  labs(title="Do people with college degrees tend to live in denser areas?",
+         x="% college educated", 
+         y="Population density (person / unit area)", 
+         col="% below \n poverty line") + 
+  theme_minimal()
 ```
