@@ -20,7 +20,8 @@ The distribution shown below is unimodal and heavily right skewed. There seems t
 
 ```{r}
 #| label: exercise-1
-ggplot(midwest, aes(x = popdensity)) + geom_histogram(binwidth = 10000) + labs(x = "Population density", y = "Count", title = "Population density of counties")
+ggplot(midwest, aes(x = popdensity)) + 
+  geom_histogram(binwidth = 10000) + labs(x = "Population density", y = "Count", title = "Population density of counties")
 
 ```
 
@@ -28,7 +29,10 @@ ggplot(midwest, aes(x = popdensity)) + geom_histogram(binwidth = 10000) + labs(x
 
 ```{r}
 #| label: exercise-2
-ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + geom_point() + scale_color_viridis_d() + labs(x="% with college degree", y="% in poverty", title="Percent with college degrees vs. Percent in poverty")
+ggplot(midwest, aes(x = percollege, y = percbelowpoverty, color = state)) + 
+  geom_point() + 
+  scale_color_viridis_d() + 
+  labs(x="% with college degree", y="% in poverty", title="Percent with college degrees vs. Percent in poverty")
 ```
 
 ## Exercise 3
